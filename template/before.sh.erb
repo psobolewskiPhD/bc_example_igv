@@ -38,6 +38,10 @@ SALT="$(create_passwd 16)"
 password="$(create_passwd 16)"
 PASSWORD_SHA1="$(echo -n "${password}${SALT}" | openssl dgst -sha1 | awk '{print $NF}')"
 
+# setup secure DISPLAY
+export DISPLAY=:$(shuf -n 1 -i 100-200)
+xauth add ${DISPLAY} . $(xxd -l 16 -p /dev/urandom)
+export XAUTHORITY="${HOME}/.Xauthority"
 
 # The `$CONFIG_FILE` environment variable is exported as it is used in the main
 # `script.sh.erb` file when launching the Jupyter Notebook server.

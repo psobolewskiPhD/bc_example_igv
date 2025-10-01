@@ -37,5 +37,5 @@ apptainer exec ${CONTAINER} xpra start \
     --exit-with-windows=yes \
     --daemon=no \
     --clipboard=yes \
-    --xvfb="/usr/bin/Xvfb +extension Composite -screen 0 1920x1080x24+32 -nolisten tcp -noreset" \
+    --xvfb="/usr/bin/Xvfb +extension Composite -screen 0 1920x1080x24+32 -nolisten tcp -noreset -auth ${XAUTHORITY}" \
     $DISPLAY
