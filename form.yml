@@ -26,14 +26,20 @@ attributes:
   # @example Using combination of modules
   #     modules: "python/3.5 cuda/8.0.44"
   modules: "apptainer"
-  # hard-code the partition
-  partition: "compute"
+  # hard-code the partition to compute, could use dev instead
+  partition:
+    label: "Partition"
+    widget: select
+    options:
+      - ['compute']
   custom_qos:
     label: "QOS"
     widget: select
     options:
       - ['batch', data-exclusive-option-for-queue-compute: true]
       # - ['test', data-exclusive-option-for-queue-rit-test: true]
+    help: |
+      Currently, we IGV jobs are limited to the compute partition and batch QOS.
   bc_num_hours:
     label: "Number of hours"
     required: true
@@ -90,6 +96,7 @@ form:
   - partition
   - custom_qos
   - num_cores
+  - memtask
   - bc_num_hours
   - bc_email_on_started
-  - memtask
+
