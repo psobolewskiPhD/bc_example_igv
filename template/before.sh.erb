@@ -47,7 +47,7 @@ PASSWORD_SHA1="$(echo -n "${password}${SALT}" | openssl dgst -sha1 | awk '{print
 export PASSWORD_FILE="${PWD}/password.txt"
 
 # define container location
-export CONTAINER="${HOME}/bin/qupath_xpra.sif"
+export CONTAINER="${HOME}/bin/igv_xpra.sif"
 
 # Generate password file with secure file permissions
 (

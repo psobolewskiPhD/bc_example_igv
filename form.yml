@@ -48,7 +48,7 @@ attributes:
     label: "Number of cores"
     value: 1
     help: |
-      Currently, we limit the maximum number of cores for a QuPath job to 16.
+      Currently, we limit the maximum number of cores for a IGV job to 16.
     min: 1
     max: 16
     step: 1
@@ -58,7 +58,7 @@ attributes:
     min: 1
     max: 8
     step: 1
-    help: "The interactive QuPath server is intended for a work day's amount of time."
+    help: "The interactive IGV server is intended for a work day's amount of time."
   memtask:
     widget: select
     label: "Memory (in GB)"

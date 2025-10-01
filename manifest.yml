@@ -1,7 +1,7 @@
 ---
-name: QuPath
+name: IGV
 category: Interactive Apps
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch QuPath on one node.
+  This app will launch IGV on one node.

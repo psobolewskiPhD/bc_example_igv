@@ -21,9 +21,9 @@ module list
 <%- end -%>
 
 # Benchmark info
-echo "TIMING - Starting QuPath at: $(date)"
+echo "TIMING - Starting IGV at: $(date)"
 
-# Launch QuPath using xpra
+# Launch IGV using xpra
 set -x
 apptainer exec ${CONTAINER} xpra start \
     --minimal=yes \
@@ -33,7 +33,7 @@ apptainer exec ${CONTAINER} xpra start \
     --opengl=yes \
     --html=on \
     --compression-level=1 \
-    --start="/QuPath/bin/QuPath -Dqupath.prefs.name=myPrefs" \
+    --start="/IGV_Linux_2.19.6/igv.sh" \
     --exit-with-windows=yes \
     --daemon=no \
     --clipboard=yes \
