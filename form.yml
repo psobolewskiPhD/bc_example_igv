@@ -26,14 +26,16 @@ attributes:
   # @example Using combination of modules
   #     modules: "python/3.5 cuda/8.0.44"
   modules: "apptainer"
-  auto_queues:
-    label: "Partition"
+  # hard-code the partition to compute, could use dev instead
+  partition: "compute"
   custom_qos:
     label: "QOS"
     widget: select
     options:
       - ['batch', data-exclusive-option-for-queue-compute: true]
-      - ['test', data-exclusive-option-for-queue-rit-test: true]
+      # - ['test', data-exclusive-option-for-queue-rit-test: true]
+    help: |
+      Currently, we IGV jobs are limited to the compute partition and batch QOS.
   bc_num_hours:
     label: "Number of hours"
     required: true
@@ -63,12 +65,14 @@ attributes:
     widget: select
     label: "Memory (in GB)"
     options:
-      - ["8GB"]
-      - ["16GB"]
-      - ["24GB"]
-      - ["32GB"]
-      - ["40GB"]
-      - ["48GB"]  
+      - ["10GB"]
+      # - ["16GB"]
+      # - ["24GB"]
+      # - ["32GB"]
+      # - ["40GB"]
+      # - ["48GB"]
+    help: |
+      Currently, we limit the maximum memory for a IGV job to 10GB.
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
   # command that launches the Jupyter notebook within the batch job
@@ -85,9 +89,10 @@ attributes:
 #   Dashboard
 form:
   - modules
-  - auto_queues
+  - partition
   - custom_qos
   - num_cores
+  - memtask
   - bc_num_hours
   - bc_email_on_started
-  - memtask
+
